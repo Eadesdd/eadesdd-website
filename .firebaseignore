@@ -1,0 +1,8 @@
+# Firebase uses this file instead of .gitignore for deploy filtering.
+# Keep patterns minimal so hosting_public/ and functions/.next/ are included.
+node_modules/
+.git/
+.env*
+*.log
+.DS_Store
+.firebase/
