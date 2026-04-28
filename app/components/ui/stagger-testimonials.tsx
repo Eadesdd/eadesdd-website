@@ -12,7 +12,7 @@ const testimonials = [
     testimonial: "EADES delivered our SaaS platform on time and beyond spec. We went from idea to live product in 8 weeks.",
     by: "NovaSpark Technologies",
     industry: "SaaS · Fintech",
-    initials: "NS",
+    avatar: "https://i.pravatar.cc/96?img=11",
     accent: "#E05A3A",
   },
   {
@@ -20,7 +20,7 @@ const testimonials = [
     testimonial: "Their AI automation work cut our manual data processing by 80%. The ROI was immediate.",
     by: "Meridian Logistics",
     industry: "Logistics · Operations",
-    initials: "ML",
+    avatar: "https://i.pravatar.cc/96?img=52",
     accent: "#2C6FBF",
   },
   {
@@ -28,7 +28,7 @@ const testimonials = [
     testimonial: "We had a complex React Native app built in record time. Quality was top-tier and communication was seamless.",
     by: "PulseHealth Group",
     industry: "HealthTech · Mobile",
-    initials: "PH",
+    avatar: "https://i.pravatar.cc/96?img=47",
     accent: "#2BA85A",
   },
   {
@@ -36,7 +36,7 @@ const testimonials = [
     testimonial: "EADES rebuilt our entire web presence. Conversions are up 3x since the relaunch. Genuinely impressive work.",
     by: "Elevate Brands",
     industry: "E-Commerce · Marketing",
-    initials: "EB",
+    avatar: "https://i.pravatar.cc/96?img=38",
     accent: "#9B59B6",
   },
   {
@@ -44,7 +44,7 @@ const testimonials = [
     testimonial: "If I could give 11 stars, I'd give 12. Best dev team we've ever worked with, period.",
     by: "Ironclad Capital",
     industry: "Finance · Investment",
-    initials: "IC",
+    avatar: "https://i.pravatar.cc/96?img=60",
     accent: "#E05A3A",
   },
   {
@@ -52,7 +52,7 @@ const testimonials = [
     testimonial: "Our Flutter app launched flawlessly on both iOS and Android. Users love it. We love EADES.",
     by: "Orbit Mobility",
     industry: "Transport · Consumer Apps",
-    initials: "OM",
+    avatar: "https://i.pravatar.cc/96?img=33",
     accent: "#E8A020",
   },
   {
@@ -60,7 +60,7 @@ const testimonials = [
     testimonial: "Took some convincing to outsource, but now that we're working with EADES — we're never going back.",
     by: "Cascadia Ventures",
     industry: "Venture · Startup Studio",
-    initials: "CV",
+    avatar: "https://i.pravatar.cc/96?img=25",
     accent: "#2BA85A",
   },
   {
@@ -68,7 +68,7 @@ const testimonials = [
     testimonial: "Their AI integration gave us analytics we didn't even know we needed. The insights changed how we operate.",
     by: "DataCore Analytics",
     industry: "Data · Intelligence",
-    initials: "DC",
+    avatar: "https://i.pravatar.cc/96?img=56",
     accent: "#2C6FBF",
   },
   {
@@ -76,7 +76,7 @@ const testimonials = [
     testimonial: "Clean code, clean design, clean delivery. EADES sets the standard.",
     by: "Summit Digital Studio",
     industry: "Agency · Creative",
-    initials: "SD",
+    avatar: "https://i.pravatar.cc/96?img=17",
     accent: "#E05A3A",
   },
   {
@@ -84,7 +84,7 @@ const testimonials = [
     testimonial: "We switched to EADES two years ago and our product velocity has never been higher.",
     by: "CloudAxis Systems",
     industry: "Cloud · Infrastructure",
-    initials: "CA",
+    avatar: "https://i.pravatar.cc/96?img=43",
     accent: "#9B59B6",
   },
 ];
@@ -141,15 +141,20 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({
         }}
       />
 
-      {/* Company logo / initials */}
+      {/* Avatar */}
       <div
-        className="mb-5 flex h-12 w-12 items-center justify-center text-sm font-black text-white"
+        className="mb-5 h-12 w-12 overflow-hidden"
         style={{
-          backgroundColor: isCenter ? testimonial.accent : "#2C2C2C",
-          boxShadow: "3px 3px 0px #111111",
+          boxShadow: isCenter ? `3px 3px 0px ${testimonial.accent}` : "3px 3px 0px #111111",
+          outline: isCenter ? `2px solid ${testimonial.accent}` : "2px solid #2C2C2C",
         }}
       >
-        {testimonial.initials}
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src={testimonial.avatar}
+          alt={testimonial.by}
+          className="h-full w-full object-cover"
+        />
       </div>
 
       {/* Quote */}
